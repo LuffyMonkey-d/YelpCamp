@@ -24,6 +24,13 @@ const seedDB = async () => {
         const camp = new Campground({
             author: mongoose.Types.ObjectId('67e577d1c72fdf58c4f05772'),
             location: `${cities[randomCityIndex].prefecture}${cities[randomCityIndex].city}`,
+            geometry: {
+                type: 'Point',
+                coordinates: [
+                    cities[randomCityIndex].longitude,
+                    cities[randomCityIndex].latitude
+                ]
+            },
             title: `${sample(descriptors)}・${sample(places)}`,
             description: 'たしかにあれがみんな星だと考えますと、突き当たりの大きな扉をあけました。カムパネルラが手をのばしていました。ジョバンニは思わず、カムパネルラともあんまり物を言わないように窓の外から光りました。私はたいへんいい実験をしたってのぼくも知ってらい。ジョバンニはだんだんこころもちが明るくなって、その火は燃えているのです。',
             price,
