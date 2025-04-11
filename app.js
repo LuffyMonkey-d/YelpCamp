@@ -32,9 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static( path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
 
 const sessionConfig = {
     secret: 'mysecret',
@@ -65,6 +62,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', (req, res) => {
+    res.render('home');
+});
 
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
